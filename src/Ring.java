@@ -18,7 +18,6 @@ public class Ring {
     /*
     Write equals.
      */
-
     public boolean equals(Ring ring) {
         return center.equals(ring.center) && outerRadius == ring.outerRadius && innerRadius == ring.innerRadius;
     }
@@ -69,7 +68,6 @@ public class Ring {
         Ring ring3 = new Ring(center, 10, 5);
         Ring ring4 = new Ring(center, 10, 5);
         System.out.println(Ring.contains(p, ring3, ring4));
-
 
     }
 }
