@@ -7,9 +7,9 @@ public class Ring {
     must always be smaller than the outer one.
      */
 
-    private Point center;
-    private int outerRadius;
-    private int innerRadius;
+    private final Point center;
+    private final int outerRadius;
+    private final int innerRadius;
 
     public Ring(Point center, int outerRadius, int innerRadius) {
         this.center = center;
@@ -43,7 +43,7 @@ public class Ring {
     Write contains(Point p, Ring...rings) that will return true of the point is inside one of the rings ?
      */
 
-    public static boolean contains(Point p, Ring...rings) {
+    public static boolean contains(Point p, Ring... rings) {
         for (Ring ring : rings) {
             if (ring.contains(p)) {
                 return true;
