@@ -1,3 +1,5 @@
+package fr.dauphine.javaavance.td1;
+
 import java.util.LinkedList;
 
 public class EE04 {

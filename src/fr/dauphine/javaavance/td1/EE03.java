@@ -1,3 +1,5 @@
+package fr.dauphine.javaavance.td1;
+
 public class EE03 {
 
     /*
@@ -36,6 +38,5 @@ public class EE03 {
     is not implemented in the Point class. So the indexOf method is using the equals method from the Object class, which
     is comparing the references of the objects. To fix this problem, we need to implement the equals method in the Point class.
      */
-
 
 }

@@ -1,3 +1,5 @@
+package fr.dauphine.javaavance.td1;
+
 public class Circle {
     /*
     A circle can be represented with a center and a radius. Write a new Circle class.
