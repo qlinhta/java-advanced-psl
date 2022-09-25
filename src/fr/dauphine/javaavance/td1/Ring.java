@@ -3,7 +3,7 @@ package fr.dauphine.javaavance.td1;
 public class Ring {
 
     /*
-    Write a new class Ring, with a center and two radius (beware, the inner radius
+    2. Write a new class Ring, with a center and two radius (beware, the inner radius
     must always be smaller than the outer one.
      */
 
@@ -18,21 +18,21 @@ public class Ring {
     }
 
     /*
-    Write equals.
+    3. Write equals.
      */
     public boolean equals(Ring ring) {
         return center.equals(ring.center) && outerRadius == ring.outerRadius && innerRadius == ring.innerRadius;
     }
 
     /*
-    Write a toString.
+    4. Write a toString.
      */
     public String toString() {
         return "Ring: center = " + center + ", outer radius = " + outerRadius + ", inner radius = " + innerRadius;
     }
 
     /*
-    Write contains(Point p) that will return true if the point is inside the ring.
+    5. Write contains(Point p) that will return true if the point is inside the ring.
      */
     public boolean contains(Point p) {
         return Math.sqrt(Math.pow(p.getX() - center.getX(), 2) + Math.pow(p.getY() - center.getY(), 2)) < outerRadius
@@ -40,7 +40,7 @@ public class Ring {
     }
 
     /*
-    Write contains(Point p, Ring...rings) that will return true of the point is inside one of the rings ?
+    6. Write contains(Point p, Ring...rings) that will return true of the point is inside one of the rings ?
      */
 
     public static boolean contains(Point p, Ring... rings) {
