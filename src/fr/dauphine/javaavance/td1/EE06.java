@@ -39,7 +39,7 @@ public class EE06 {
      */
 
     /*
-    6. Write contains(Point, Ring...)
+    6. Write contains(Point, Ring...) that will return true of the point is inside one of the rings ?
     >> See class Ring.java
      */
 }
