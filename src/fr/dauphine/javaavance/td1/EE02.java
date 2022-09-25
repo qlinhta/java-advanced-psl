@@ -7,6 +7,13 @@ public class EE02 {
      */
 
     /*
+    2. Create a class TestPoint with a main and the same code as before. What happens ? How can we fix it ?
+    >>
+    The code doesn't work because the variables are private. We can fix it by making the variables public or by adding a getter method.
+    See class TestPoint.java
+     */
+
+    /*
     3. Why do you need to set all fields visibility to private ?
     >> To prevent the user from changing the values of the variables and to prevent the user from accessing the variables directly
     Also encapsulate the access to your object variable keeping the control of the object status. (see class Point.java)
