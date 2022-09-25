@@ -85,7 +85,7 @@ public class Circle {
 
         // Consider Circle pop, what would be the problem with a getCenter() method that would return the center?
         /*
-        >>
+        >> The problem is that the center of the circle is the same object as the center of the circle c2.
          */
 
         System.out.println(pop);
