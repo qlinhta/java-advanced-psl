@@ -10,12 +10,11 @@ public class EE04 {
     The polyline will have a maximum number of points that can vary
     from one instance to another (but is a constant for a single polyline instance).
      */
-
     private Point[] points;
     private int maxPoints;
 
     /*
-    You will use an array to store the Points of the polyline. Write the constructor for PolyLine
+    1. You will use an array to store the Points of the polyline. Write the constructor for PolyLine
      */
     public EE04(int maxPoints) {
         this.maxPoints = maxPoints;
@@ -23,7 +22,7 @@ public class EE04 {
     }
 
     /*
-    Write a method add that can be used to add a new point to the line.
+    2. Write a method add that can be used to add a new point to the line.
     What happens if we add more points that the maximum capacity of the array ?
     What to do about it ?
      */
@@ -39,7 +38,7 @@ public class EE04 {
     }
 
     /*
-    Write a method pointCapacity() and nbPoints() that will return the maximum
+    3. Write a method pointCapacity() and nbPoints() that will return the maximum
     capacity of the polyline and the number points currently in the polyline.
      */
     public void pointCapacity() {
@@ -57,7 +56,7 @@ public class EE04 {
     }
 
     /*
-    Write a method contains which will return true if a given point is in the
+    4. Write a method contains which will return true if a given point is in the
     polyline. Use a for each loop to do this (instead of a classical index based loop).
      */
     // Check if a point is in the polyline
@@ -71,7 +70,7 @@ public class EE04 {
     }
 
     /*
-    What happens if null is given instead of an actual Point object ? What if you
+    5. What happens if null is given instead of an actual Point object ? What if you
     do add(null) before ? Read about Objects.requireNonNull(o).
 
     >>
@@ -80,7 +79,7 @@ public class EE04 {
      */
 
     /*
-    Update the class and use a LinkedList instead of an array (and remove the maximum capacity limit).
+    6. Update the class and use a LinkedList instead of an array (and remove the maximum capacity limit).
     How to update pointCapacity, nbPoints and contains ?
 
     >>
@@ -161,9 +160,5 @@ public class EE04 {
         System.out.println(pl2.containsList(p1));
         System.out.println(pl2.containsList(p4));
         System.out.println(pl2.containsList(p5));
-
-
     }
-
-
 }
