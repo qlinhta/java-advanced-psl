@@ -1,8 +1,8 @@
 package fr.dauphine.javaavance.td2;/*
 
-EXO 1 :
+Exercice 1:
 
-1/ Cela affiche :
+1/
     42 //normal
     42 //normal
     24 //normal car valeur de meth() dans la classe Fille est = 24
@@ -19,6 +19,7 @@ EXO 1 :
     Le mot clé « instant » garantit qu'une seule instance d'une méthode d'objet ou d'une variable concernée est créée en mémoire.
     Lors qu’on met le mot static, il faut changer la syntaxe lors des appels de la méthode : ClassName.VariableName.
     La classe Main devient :
+
         public static void main(String[] args) {
                 Mere mere = new Mere();
                 System.out.println(Mere.meth());
@@ -29,6 +30,7 @@ EXO 1 :
                 Mere mereFille = new Fille();
                 System.out.println(Fille.meth());
                 mereFille.printMeth();
+
     Ca affiche donc :
     42
     42
@@ -42,7 +44,7 @@ EXO 1 :
     prendre la valeur du champ meth de sa classe. Et le mot clé « static » » garantit qu'une seule instance d'une
     méthode d'objet ou d'une variable concernée est créée en mémoire. Donc il a gardé la première déclaration dont la valeur = 42
 
-EXO2
+Exercice 2.
 
 1/
     Dans la classe Fille, les erreurs viennent des méthodes:
