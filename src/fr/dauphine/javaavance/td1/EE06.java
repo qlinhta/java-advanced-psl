@@ -7,7 +7,8 @@ public class EE06 {
     A ring is a circle with a center and a radius.
     It also has a second radius that is smaller than the first one.
     The ring is the area between the two circles.
-    Should we use inheritance and why?
+
+    1. Should we use inheritance and why?
     >>
     Yes, because a ring is a circle with a hole in the middle
     Inheritance should only be used when:
@@ -17,9 +18,28 @@ public class EE06 {
      */
 
     /*
-    Write a new class Ring, with a center and two radius (beware, the inner radius
+    2. Write a new class Ring, with a center and two radius (beware, the inner radius
     must always be smaller than the outer one.
     >> See class Ring.java
      */
 
+    /*
+    3. Write equals.
+    >> See class Ring.java
+     */
+
+    /*
+    4. Write a toString.
+    >> See class Ring.java
+     */
+
+    /*
+    5. Write contains(Point), avoid useless object construction
+    >> See class Ring.java
+     */
+
+    /*
+    6. Write contains(Point, Ring...)
+    >> See class Ring.java
+     */
 }
