@@ -14,6 +14,8 @@ public class Garage {
 
     public Garage(int capacity) {
         cars = new Car[capacity];
+        // for bikes also
+        bikes = new Bike[capacity];
         size = 0;
     }
 
@@ -151,5 +153,64 @@ public class Garage {
 
     public int getSize() {
         return size;
+    }
+
+    /*
+    Exercice 3: Start here
+     */
+
+    // Declare a new ArrayList of bikes as an attribute of the class Garage, make sure that value of bike is not null.
+    private Bike[] bikes;
+    // Size of the ArrayList bikes
+    private int sizeBikes;
+
+    /*
+    Method addBike(), adds a bike to the ArrayList bikes, throws an exception if the bike is null
+    and check size of the ArrayList bikes to make sure it doesn't exceed the capacity of the garage.
+     */
+
+    public void addBike(Bike bike) {
+        Objects.requireNonNull(bike);
+        if (sizeBikes == bikes.length) {
+            throw new IllegalArgumentException("Garage is full");
+        }
+        bikes[sizeBikes] = bike;
+        sizeBikes++;
+    }
+    /*
+    5. In garage, create a method void protectionism(String brand); which removes all the vehicles of the brand passed
+    as an argument, by traversing the list only once. Test, it is likely that your first idea does not work...
+     */
+
+    public void protectionism(String brand) {
+        for (int i = 0; i < size; i++) {
+            if (cars[i].getBrand().equals(brand)) {
+                remove(cars[i]);
+                i--;
+            }
+        }
+        for (int i = 0; i < sizeBikes; i++) {
+            if (bikes[i].getBrand().equals(brand)) {
+                removeBike(bikes[i]);
+                i--;
+            }
+        }
+    }
+
+    private void removeBike(Bike bike) {
+        for (int i = 0; i < sizeBikes; i++) {
+            if (bikes[i].equals(bike)) {
+                bikes[i] = bikes[sizeBikes - 1];
+                bikes[sizeBikes - 1] = null;
+                sizeBikes--;
+                return;
+            }
+        }
+        throw new IllegalArgumentException("Bike not found");
+    }
+
+
+    public int getSizeBikes() {
+        return sizeBikes;
     }
 }
