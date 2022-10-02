@@ -12,15 +12,19 @@ public class Garage {
     private Car[] cars;
     private int size;
 
-    public Garage(int capacity, int id) {
+    public Garage(int capacity) {
         cars = new Car[capacity];
-        this.id = id;
         size = 0;
     }
 
     // Method that adds a car to the garage, throws an exception if the car is null
+
     public void addCar(Car car) {
-        Objects.requireNonNull(car, "car");
+        Objects.requireNonNull(car);
+        if (size == cars.length) {
+            throw new IllegalArgumentException("Garage is full");
+        }
+        // Add the car to the garage with the next available indexOf the array
         cars[size] = car;
         size++;
     }
@@ -32,7 +36,7 @@ public class Garage {
      */
 
     private static int idCounter = 0;
-    private final int id;
+    private int id;
 
     public Garage() {
         id = idCounter;
@@ -125,5 +129,27 @@ public class Garage {
     >> See src/fr/dauphine/javaavance/td3/GarageTest.java and src/fr/dauphine/javaavance/td3/CarTest.java
      */
 
+    /*
+    Exercice 2. Start here in this class
+     */
 
+    /*
+    4. Write a method remove() in Garage which takes a car as an argument and allows to remove a car from the garage.
+     */
+
+    public void remove(Car car) {
+        for (int i = 0; i < size; i++) {
+            if (cars[i].equals(car)) {
+                cars[i] = cars[size - 1];
+                cars[size - 1] = null;
+                size--;
+                return;
+            }
+        }
+        throw new IllegalArgumentException("Car not found");
+    }
+
+    public int getSize() {
+        return size;
+    }
 }
