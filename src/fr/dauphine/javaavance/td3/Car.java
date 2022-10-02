@@ -67,11 +67,12 @@ public class Car {
     The behavior is natural, but we need to override the equals method to compare the two objects.
     And we need to override the hashCode method to get the hash code of the object. The hash code is used to compare the two objects.
 
-    2. Write a method with signature boolean equals(Car c) that returns true if the two cars have the same brand and value
+    Write a method with signature boolean equals(Car c) that returns true if the two cars have the same brand and value
      */
 
     @Override
-    public boolean equals(Object o) {
+    // This method is my solution for all question 1, 2, 3 of the exercice 2
+    public boolean equals(Object o) { // I changed the parameter type from Car to Object, because we need to override the equals method of the Object class
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
@@ -80,7 +81,7 @@ public class Car {
     }
 
     /*
-    3. Is this a logical behavior? Read indexOf of List doc and modify your code accordingly.
+    2. Is this a logical behavior? Read indexOf of List doc and modify your code accordingly.
 
         ArrayList<Car> list = new ArrayList<>();
         list.add(a);

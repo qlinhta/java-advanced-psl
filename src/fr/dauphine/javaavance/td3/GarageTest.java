@@ -19,15 +19,6 @@ public class GarageTest {
     }
 
     @Test
-    public void testRemoveCar() {
-        Garage garage = new Garage(10);
-        Car car = new Car("Audi", 10000);
-        garage.addCar(car);
-        garage.remove(car);
-        assertEquals(0, garage.getSize());
-    }
-
-    @Test
     public void testCalculateValue() {
         Garage garage = new Garage(10);
         Car car1 = new Car("Audi", 10000);
