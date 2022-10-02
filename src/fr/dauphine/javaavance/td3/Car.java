@@ -12,6 +12,7 @@ public class Car {
 
     private final String brand;
     private final long value;
+    private Discount discount;
 
     /*
     2. Write a constructor that takes two parameters and initializes the two fields
@@ -76,8 +77,7 @@ public class Car {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return value == car.value &&
-                Objects.equals(brand, car.brand);
+        return value == car.value && Objects.equals(brand, car.brand);
     }
 
     /*
@@ -132,6 +132,11 @@ public class Car {
         }
 
      */
+
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
+    }
 
     public static void main(String[] args) {
 
