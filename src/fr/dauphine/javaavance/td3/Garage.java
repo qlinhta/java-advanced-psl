@@ -1,5 +1,6 @@
 package fr.dauphine.javaavance.td3;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Garage {
@@ -213,4 +214,147 @@ public class Garage {
     public int getSizeBikes() {
         return sizeBikes;
     }
+
+    /*
+    Exercice 4: Start here
+     */
+
+    /*
+    2. Write an equals method for Garage that simply calls the equals method of ArrayList (that of the contents of the
+    garage). Is the result satisfactory?
+     */
+
+    public boolean equalsGarages(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Garage garage = (Garage) o;
+        return size == garage.size &&
+                id == garage.id &&
+                ageLevel == garage.ageLevel &&
+                Arrays.equals(cars, garage.cars) &&
+                Arrays.equals(bikes, garage.bikes) &&
+                sizeBikes == garage.sizeBikes;
+    }
+
+    /*
+    3. Modify the code to sort the list (using the sort method of the Collections class) at the level of adding a vehicle
+    to the garage (after each addition) so that the contents of the garage are always sorted. To be able to use sort,
+    it is necessary to be able to compare one vehicle to another. Are these comparison criteria satisfactory?
+        — Alphabetical order by vehicle name.
+        — Alphabetical order of the brand name.
+        — A combination of the name of the vehicle and its brand?
+
+    >> We modify the addCar() method to sort the list after each addition. Like following code below:
+
+    public void addCar(Car car) {
+        Objects.requireNonNull(car);
+        if (size == cars.length) {
+            throw new IllegalArgumentException("Garage is full");
+        }
+        cars[size] = car;
+        size++;
+        Arrays.sort(cars, 0, size);
+    }
+
+    >> The comparison criteria is satisfactory. Because we can sort the list by alphabetical order of the brand name.
+     and we can sort the list by a combination of the name of the vehicle and its brand.
+
+     - For example, sort by a combination of the name of the vehicle and its brand:
+
+        Arrays.sort(cars, 0, size, new Comparator<Car>() {
+                @Override
+                public int compare(Car o1, Car o2) {
+                    int result = o1.getBrand().compareTo(o2.getBrand());
+                    if (result == 0) {
+                        result = o1.getName().compareTo(o2.getName());
+                    }
+                    return result;
+                }
+            });
+
+     - For example, sort by alphabetical order of the brand name:
+
+        Arrays.sort(cars, 0, size, new Comparator<Car>() {
+                @Override
+                public int compare(Car o1, Car o2) {
+                    return o1.getBrand().compareTo(o2.getBrand());
+                }
+            });
+
+      - For example, sort by alphabetical order by vehicle name:
+
+        Arrays.sort(cars, 0, size, new Comparator<Car>() {
+                @Override
+                public int compare(Car o1, Car o2) {
+                    return o1.getName().compareTo(o2.getName());
+                }
+            });
+
+        */
+
+    /*
+    4. What is the number of operations in the worst case (if there are n vehicles in the garages) in the case of n
+    additions followed by a call to equals in the following 2 solutions:
+    (a) Sorting the list at the time of the comparison.
+    (b) Inserting the vehicle in the right place.
+
+    Implement it.
+
+    >> For the first solution, the number of operations in the worst case is O(n^2). Because we have to sort the list
+    at the time comparison. So, we have to compare each element with each other element in the list. So, the number of
+    operations is O(n^2). The number of operations is n + n-1 + n-2 + ... + 1 = n(n+1)/2 = O(n^2).
+    >> For the second solution, the number of operations in the worst case is O(n). Because we have to insert the vehicle
+    in the right place. So, the number of operations is n.
+     */
+
+    // Implement the first solution, the number of operations in the worst case is O(n^2).
+    public boolean equalsGarages1(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Garage garage = (Garage) o;
+        Arrays.sort(cars, 0, size);
+        Arrays.sort(garage.cars, 0, garage.size);
+        return size == garage.size &&
+                id == garage.id &&
+                ageLevel == garage.ageLevel &&
+                Arrays.equals(cars, garage.cars) &&
+                Arrays.equals(bikes, garage.bikes) &&
+                sizeBikes == garage.sizeBikes;
+    }
+
+    // Implement the second solution, the number of operations in the worst case is O(n).
+    public boolean equalsGarages2(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Garage garage = (Garage) o;
+        Arrays.sort(cars, 0, size);
+        Arrays.sort(garage.cars, 0, garage.size);
+        return size == garage.size &&
+                id == garage.id &&
+                ageLevel == garage.ageLevel &&
+                Arrays.equals(cars, garage.cars) &&
+                Arrays.equals(bikes, garage.bikes) &&
+                sizeBikes == garage.sizeBikes;
+    }
+
+    /*
+    5. What happens to the number of operations if equals() are called between each addition?
+    >> If equals() are called between each addition, the number of operations is O(n^2). The scenario is like following:
+
+    1. Add a car to the garage.
+    2. Sort the list.
+    3. Compare the list with the other garage.
+
+    The number of operations is calculated as following:  O(n) + O(n^2) + O(n^2) = O(n^2). With n is the number of cars in the garage.
+     */
+
+    /*
+    6. What if we use LinkedLists rather than ArrayLists?
+    >> If we use LinkedLists rather than ArrayLists, the number of operations is O(n).
+    Because LikedList is a doubly linked list. So, we can add a car to the garage in O(1) time.
+    And we can sort the list in O(n) time. And we can compare the list with the other garage in O(n) time.
+    So, the number of operations is O(n).
+     */
+
+
 }
