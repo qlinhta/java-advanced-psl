@@ -1,5 +1,7 @@
 package fr.dauphine.javaavance.td3;
 
+import java.util.Objects;
+
 public class Car {
 
     /*
@@ -40,6 +42,39 @@ public class Car {
 
     public String getString() {
         return "Brand: " + brand + ", Value: " + value;
+    }
+
+    /*
+    Exercice 2. Start here
+     */
+
+    /*
+    1. Is the behavior natural? Add a method with signature boolean equals(Car c);
+
+        Car a = new Car("Audi", 10000);
+        Car b = new Car("BMW", 9000);
+        Car c = new Car("BMW", 9000);
+        Car d = a;
+        System.out.println(a == b);
+        System.out.println(b == c);
+        System.out.println(a == d);
+        System.out.println(a.equals(b));
+        System.out.println(b.equals(c));
+        System.out.println(a.equals(d));
+    >>
+    The behavior is natural, but we need to override the equals method to compare the two objects.requireNonNull(c);
+    And we need to override the hashCode method to get the hash code of the object. The hash code is used to compare the two objects.
+
+    2. Write a method with signature boolean equals(Car c) that returns true if the two cars have the same brand and value
+     */
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return value == car.value &&
+                Objects.equals(brand, car.brand);
     }
 
 }
