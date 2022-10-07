@@ -140,7 +140,6 @@ public class Car {
         }
         this.brand = brand;
         this.value = value;
-        this.wearLevel = Integer.parseInt(null);
     }
 
     // Getters for the 11th question
@@ -173,6 +172,22 @@ public class Car {
 
     public void setPlate(String plate) {
         this.plate = plate;
+    }
+
+    /*
+    Method equals() to compare two cars
+     */
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return value == car.value &&
+                wearLevel == car.wearLevel &&
+                brand.equals(car.brand);
+                //plate.equals(car.plate);
     }
 
 

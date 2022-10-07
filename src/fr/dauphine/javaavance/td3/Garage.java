@@ -1,4 +1,5 @@
 package fr.dauphine.javaavance.td3;
+
 public class Garage {
 
     /*
@@ -70,7 +71,16 @@ public class Garage {
     What should we do if there is no car of this brand?
      */
 
+    /**
+     * Returns the first car of the brand given in parameter
+     * @param brand
+     * @return the first car of the brand given in parameter
+     * throw NullPointerException if brand is null
+     */
     public Car firstCarByBrand(String brand) {
+        if (brand == null) {
+            throw new NullPointerException("Brand can't be null");
+        }
         for (int i = 0; i < nbCars; i++) {
             if (cars[i].getBrand().equals(brand)) {
                 return cars[i];
@@ -87,4 +97,33 @@ public class Garage {
         }
         return value;
     }
+
+    /*
+    4. Write a remove method in Garage that takes a car as an argument and which allows to remove a car from the garage
+     */
+
+    /**
+     * Remove a car from the garage
+     * @param car
+     * @return true if the car was removed
+     * throw IllegalStateExeption if the car is not in the garage
+     * throw NullPointerException if the car is null
+     */
+
+    public boolean remove(Car car) {
+        if (car == null) {
+            throw new NullPointerException("Can't remove a null car from the garage");
+        }
+        for (int i = 0; i < nbCars; i++) {
+            if (cars[i].equals(car)) {
+                cars[i] = cars[nbCars - 1];
+                cars[nbCars - 1] = null;
+                nbCars--;
+                return true;
+            }
+        }
+        throw new IllegalStateException("The car is not in the garage");
+    }
+
+
 }
