@@ -18,6 +18,7 @@ public class Garage {
         this.nbCars = 0;
     }
 
+
     // Can't add a null car in the garage
     public void add(Car car) {
         if (car == null) {
@@ -44,15 +45,7 @@ public class Garage {
     8. Write a toString() method to display a garage properly using of a StringBuilder.
      */
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Garage ").append(idGarage).append(" : ").append(nbCars).append(" cars");
-        for (int i = 0; i < nbCars; i++) {
-            sb.append("\n\t").append(cars[i]);
-        }
-        return sb.toString();
-    }
+
 
     /*
     9. Add a method to calculate the total value of a garage (sum of the value of the cars it contains).
@@ -73,10 +66,11 @@ public class Garage {
 
     /**
      * Returns the first car of the brand given in parameter
-     * @param brand
+     *
      * @return the first car of the brand given in parameter
      * throw NullPointerException if brand is null
      */
+
     public Car firstCarByBrand(String brand) {
         if (brand == null) {
             throw new NullPointerException("Brand can't be null");
@@ -88,7 +82,6 @@ public class Garage {
         }
         return null;
     }
-
 
     public long getValue() {
         long value = 0;
@@ -104,6 +97,7 @@ public class Garage {
 
     /**
      * Remove a car from the garage
+     *
      * @param car
      * @return true if the car was removed
      * throw IllegalStateExeption if the car is not in the garage
@@ -124,6 +118,5 @@ public class Garage {
         }
         throw new IllegalStateException("The car is not in the garage");
     }
-
 
 }

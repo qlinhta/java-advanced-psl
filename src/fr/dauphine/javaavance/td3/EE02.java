@@ -88,6 +88,8 @@ public class EE02 {
 
         So, we need to override the equals method to compare the values of the objects. Make sure to override the hashCode method too.
 
+        See method hashCode() in the Car class (Car.java)
+
      */
 
     // FOR ALL QUESTION 1 AND 2 SEE THE Car.java, THE MEDTHOD equals(Object c) IS SATISFYING THE REQUIREMENTS OF THE QUESTIONS.

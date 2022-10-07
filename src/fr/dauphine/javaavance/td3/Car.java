@@ -2,7 +2,7 @@ package fr.dauphine.javaavance.td3;
 
 import java.util.Objects;
 
-public class Car {
+public class Car extends Vehicule {
 
     /*
     1. Write a Car class representing a car, with two final private fields brand (character string) and value (long).
@@ -38,7 +38,12 @@ public class Car {
         return brand;
     }
 
+    // Update value after discount also
+    @Override
     public long getValue() {
+        if (discount != null) {
+            return discount.getValue();
+        }
         return value;
     }
 
@@ -66,7 +71,7 @@ public class Car {
 
     // Constructor 1 for the 11th question
 
-    public Car(String brand, String plate,  long value, int wearLevel) {
+    public Car(String brand, String plate, long value, int wearLevel) {
         //  Depreciation of the value of the car according to its age level, 1000e per level. If the value is negative,
         //  throw an exception (IllegalArgumentException) because the value of the car cannot be negative.
         if (value - wearLevel * 1000L < 0) {
@@ -142,6 +147,15 @@ public class Car {
         }
         this.brand = brand;
         this.value = value;
+    }
+
+    // Constructor 5 for discount
+
+    public Car(String brand, String plate, long value, Discount discount) {
+        this.brand = brand;
+        this.plate = plate;
+        this.value = value;
+        this.discount = discount;
     }
 
     // Getters for the 11th question

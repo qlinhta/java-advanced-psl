@@ -77,7 +77,4 @@ public class CarTest2 {
         set.add(car1);
         assertTrue(!set.contains(car2));
     }
-
-
-
 }
