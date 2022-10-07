@@ -9,6 +9,9 @@ public class Car {
     private final String brand;
     private final long value;
 
+    private String plate;
+
+
     /*
     2. Write the constructor taking the values of the fields as parameters.
     3. Make it impossible to create a car with a negative value.
@@ -61,24 +64,83 @@ public class Car {
 
     // Constructor 1 for the 11th question
 
-    public Car(String brand, long value, int wearLevel) {
+    public Car(String brand, String plate,  long value, int wearLevel) {
+        //  Depreciation of the value of the car according to its age level, 1000e per level. If the value is negative,
+        //  throw an exception (IllegalArgumentException) because the value of the car cannot be negative.
+        if (value - wearLevel * 1000L < 0) {
+            throw new IllegalArgumentException("Value must be positive");
+        }
+        if (wearLevel < 0) {
+            throw new IllegalArgumentException("Wear level must be positive");
+        }
+        if (plate == null) {
+            throw new NullPointerException("Plate must not be null");
+        }
+        if (brand == null) {
+            throw new NullPointerException("Brand must not be null");
+        }
         if (value < 0) {
             throw new IllegalArgumentException("Value must be positive");
         }
         this.brand = brand;
-        this.value = value;
+        this.plate = plate;
+        this.value = value - wearLevel * 1000L;
         this.wearLevel = wearLevel;
     }
 
     // Constructor 2 for the 11th question
 
+    public Car(String brand, String plate, long value) {
+        if (value < 0) {
+            throw new IllegalArgumentException("Value must be positive");
+        }
+        if (plate == null) {
+            throw new NullPointerException("Plate must not be null");
+        }
+        if (brand == null) {
+            throw new NullPointerException("Brand must not be null");
+        }
+        this.plate = plate;
+        this.brand = brand;
+        this.value = value;
+        this.wearLevel = 0;
+    }
+
+    // Constructor 3 for the 11th question
+
+    public Car(String brand,long value, int wearLevel) {
+        if (value - wearLevel * 1000L < 0) {
+            throw new IllegalArgumentException("Value must be positive");
+        }
+        if (wearLevel < 0) {
+            throw new IllegalArgumentException("Wear level must be positive");
+        }
+        if (value < 0) {
+            throw new IllegalArgumentException("Value must be positive");
+        }
+        if (brand == null) {
+            throw new NullPointerException("Brand must not be null");
+        }
+        this.brand = brand;
+        this.value = value - wearLevel * 1000L;
+        this.wearLevel = wearLevel;
+        if (this.plate == null) {
+            throw new NullPointerException("Plate must not be null");
+        }
+    }
+
+    // Constructor 4 for the 11th question
+
     public Car(String brand, long value) {
         if (value < 0) {
             throw new IllegalArgumentException("Value must be positive");
         }
+        if (brand == null) {
+            throw new NullPointerException("Brand must not be null");
+        }
         this.brand = brand;
         this.value = value;
-        this.wearLevel = 0;
+        this.wearLevel = Integer.parseInt(null);
     }
 
     // Getters for the 11th question
@@ -102,6 +164,15 @@ public class Car {
                 ", value=" + value +
                 ", wearLevel=" + wearLevel +
                 '}';
+    }
+
+
+    public String getPlate() {
+        return plate;
+    }
+
+    public void setPlate(String plate) {
+        this.plate = plate;
     }
 
 }

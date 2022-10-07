@@ -13,6 +13,7 @@ public class CarTest {
         assertEquals("BMW", car.getBrand());
     }
 
+
     @Test
     public void testGetValue() {
         Car car  = new Car("Peugeot", "55abc75", 12000);
@@ -21,7 +22,7 @@ public class CarTest {
 
     @Test
     public void testVetuste() {
-        Car car  = new Car("Peugeot", "55abc75", 12000, 2);
+        Car car  = new Car("Peugeot","55abc75", 12000, 2);
         assertEquals(10000, car.getValue());
     }
 
@@ -32,7 +33,7 @@ public class CarTest {
 
     @Test
     public void testTooOld() {
-        assertThrows(IllegalArgumentException.class, () -> new Car("Peugeot", "55abc75", 12000, 200));
+        assertThrows(IllegalArgumentException.class, () -> new Car("Peugeot", 12000, 200));
     }
 
     @Test
@@ -46,12 +47,11 @@ public class CarTest {
     }
     @Test
     public void newCarNoBrand2() {
-        assertThrows(NullPointerException.class, () -> new Car(null, "55abc75", 20000, 2));
+        assertThrows(NullPointerException.class, () -> new Car(null, 20000, 2));
     }
 
     @Test
     public void newCarNoPlate2() {
-        assertThrows(NullPointerException.class, () -> new Car("BM", null, 20000, 2));
-
+        assertThrows(NullPointerException.class, () -> new Car("BM", 20000, 2));
     }
 }

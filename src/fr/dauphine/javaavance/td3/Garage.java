@@ -8,6 +8,7 @@ Add a method in Garage to add a car to the garage. Make it impossible to add a n
 public class Garage {
     private Car[] cars;
     private int nbCars;
+    private long totalValue;
 
     /* Constructor for the 6th question
     public Garage() {
@@ -62,12 +63,12 @@ public class Garage {
     9. Add a method to calculate the value of a garage (sum of the value of the cars it contains).
      */
 
-    public long value() {
-        long value = 0;
+    public long calculateValue() {
+        long totalValue = 0;
         for (int i = 0; i < this.nbCars; i++) {
-            value += this.cars[i].getValue();
+            totalValue += this.cars[i].getValue();
         }
-        return value;
+        return totalValue;
     }
 
 
@@ -86,4 +87,7 @@ public class Garage {
     }
 
 
+    public long getValue() {
+        return totalValue;
+    }
 }
