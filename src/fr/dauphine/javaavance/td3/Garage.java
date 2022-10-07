@@ -10,7 +10,9 @@ public class Garage {
     private static int id = 0;
     private int idGarage;
     private Car[] cars;
+    private Bike[] bikes;
     private int nbCars;
+    private int nbBike;
 
     public Garage() {
         this.idGarage = id++;
@@ -31,6 +33,8 @@ public class Garage {
         }
         cars[nbCars++] = car;
     }
+
+
 
     /*
     7. We want each garage to have a unique identifier specific to each garage (do also a getId() method).
@@ -118,5 +122,4 @@ public class Garage {
         }
         throw new IllegalStateException("The car is not in the garage");
     }
-
 }

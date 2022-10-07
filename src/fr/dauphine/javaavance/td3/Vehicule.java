@@ -38,4 +38,7 @@ public class Vehicule {
     }
 
 
+    public <T> Comparable<T> getName() {
+        return (Comparable<T>) brand;
+    }
 }
