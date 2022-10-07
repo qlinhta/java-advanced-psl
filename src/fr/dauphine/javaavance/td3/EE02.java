@@ -76,23 +76,21 @@ public class EE02 {
 
     /*
     3. Is this a logical behavior? Read List's indexOf doc and edit your code accordingly.
+
         HashSet<Car> set = new HashSet<Car>();
         set.add(b);
         System.out.println(set.contains(c));
 
         >> Output:
-                    false // set.contains(c) because the equals method is not overridden
+                    false // set.contains(c)
 
-        The behavior is not logical because the contains method is returning false, but the object c is in the set because
-        object b and object c are equals.
+        The behavior is not logical because it should return true because the object c is the same value as the object b.
 
-        See method equals(Car c) in the Car class (Car.java)
+        So, we need to override the equals method to compare the values of the objects. Make sure to override the hashCode method too.
 
-        Result after overriding the equals() method:
-                    true // set.contains(c) because the equals method is overridden
      */
 
-    // FOR ALL QUESTION 1, 2 AND 3 SEE THE Car.java, THE MEDTHOD equals(Object c) IS SATISFYING THE REQUIREMENTS OF THE QUESTIONS.
+    // FOR ALL QUESTION 1 AND 2 SEE THE Car.java, THE MEDTHOD equals(Object c) IS SATISFYING THE REQUIREMENTS OF THE QUESTIONS.
 
     /*
     4. Write a remove method in Garage that takes a car as an argument and which allows to remove a car from the garage
@@ -105,6 +103,20 @@ public class EE02 {
         Car b = new Car("BMW",9000);
         Car c = new Car("BMW",9000);
         Car d = a;
+        System.out.println(a==b);
+        System.out.println(b==c);
+        System.out.println(a==d);
+        System.out.println(a.equals(b));
+        System.out.println(b.equals(c));
+        System.out.println(a.equals(d));
+
+        ArrayList<Car> list = new ArrayList<>();
+        list.add(a);
+        list.add(b);
+        System.out.println(list.indexOf(a));
+        System.out.println(list.indexOf(b));
+        System.out.println(list.indexOf(c));
+        System.out.println(b.equals(c));
 
         HashSet<Car> set = new HashSet<Car>();
         set.add(b);

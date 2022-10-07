@@ -1,5 +1,7 @@
 package fr.dauphine.javaavance.td3;
 
+import java.util.Objects;
+
 public class Car {
 
     /*
@@ -183,12 +185,22 @@ public class Car {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Car car = (Car) o;
-        return value == car.value &&
-                wearLevel == car.wearLevel &&
-                brand.equals(car.brand);
-                //plate.equals(car.plate);
+
+        if (value != car.value) return false;
+        if (wearLevel != car.wearLevel) return false;
+        if (!Objects.equals(brand, car.brand)) return false;
+        return Objects.equals(plate, car.plate);
     }
 
+    @Override
+    public int hashCode() {
+        int result = brand.hashCode();
+        result = 31 * result + (int) (value ^ (value >>> 32));
+        result = 31 * result + (plate != null ? plate.hashCode() : 0);
+        result = 31 * result + wearLevel;
+        return result;
+    }
 
 }
