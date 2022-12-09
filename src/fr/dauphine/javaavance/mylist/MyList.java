@@ -13,6 +13,11 @@ public class MyList {
     }
 
     public void add(int index, String s) {
+        /**
+         * @param index
+         * @param s
+         * The function to add a string at a specific index in the list
+         */
         if (index < 0 || index > this.size()) {
             throw new IndexOutOfBoundsException("Index out of bounds");
         }
